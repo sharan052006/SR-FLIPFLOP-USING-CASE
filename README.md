@@ -37,12 +37,36 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 /* write all the steps invloved */
 
 **PROGRAM**
+```
+module ex6(din, clk, rst, dout); 
+    input din; 
+    input clk; 
+    input rst; 
+    output dout; 
+  reg dout; 
+  reg [7:0]x; 
+  always @ (posedge(clk) or posedge(rst)) begin 
+  if (rst==1'b1) 
+  begin 
+  dout=8'hzz; 
+  end 
+  else 
+  begin 
+  x={x[6:0],din}; 
+  dout=x[7]; 
+  end 
+  end 
+  endmodule
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
+![ex-6-d](https://github.com/user-attachments/assets/90faf56f-227d-4fbf-957e-a3fcb7a7a007)
+
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![ex-6-w](https://github.com/user-attachments/assets/77d6b6af-8e1f-4a34-b49e-02d6d50a4499)
+
 
 **RESULTS**
