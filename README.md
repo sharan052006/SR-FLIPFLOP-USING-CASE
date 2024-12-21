@@ -70,3 +70,4 @@ module ex6(din, clk, rst, dout);
 
 
 **RESULTS**
+SR flipflop is implimented and their functionality is validated
