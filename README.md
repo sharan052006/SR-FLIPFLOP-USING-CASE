@@ -66,7 +66,8 @@ module ex6(din, clk, rst, dout);
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-![ex-6-w](https://github.com/user-attachments/assets/77d6b6af-8e1f-4a34-b49e-02d6d50a4499)
+![Screenshot (84)](https://github.com/user-attachments/assets/a465dd92-75dd-43c0-97de-4c8ad950ca20)
+
 
 
 **RESULTS**
