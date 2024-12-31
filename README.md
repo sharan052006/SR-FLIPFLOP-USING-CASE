@@ -38,36 +38,50 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **PROGRAM**
 ```
-module ex6(din, clk, rst, dout); 
-    input din; 
+
+module srflipflop(s, r, clk, rst, q, qbar); 
+    input s; 
+    input r; 
     input clk; 
     input rst; 
-    output dout; 
-  reg dout; 
-  reg [7:0]x; 
+    output q; 
+    output qbar; 
+  reg q,qbar; 
   always @ (posedge(clk) or posedge(rst)) begin 
-  if (rst==1'b1) 
+  if(rst==1'b1) begin 
+  q= 1'b0;qbar= 1'b1; 
+  end 
+  else if(s==1'b0 && r==1'b0) 
+   begin 
+  q=q; qbar=qbar; 
+  end 
+   else if(s==1'b0 && r==1'b1) 
+    begin 
+  q= 1'b0; qbar= 1'b1; 
+  end 
+    else if(s==1'b1 && r==1'b0) 
+    begin 
+  q= 1'b1; qbar= 1'b0; 
+  end 
+  else  
   begin 
-  dout=8'hzz; 
-  end 
-  else 
-  begin 
-  x={x[6:0],din}; 
-  dout=x[7]; 
+  q=1'bx;qbar=1'bx; 
   end 
   end 
-  endmodule
+endmodule
+
 
 ```
 
 **RTL LOGIC FOR FLIPFLOPS**
-![ex-6-d](https://github.com/user-attachments/assets/90faf56f-227d-4fbf-957e-a3fcb7a7a007)
+![sr1](https://github.com/user-attachments/assets/ec91696b-dc3f-4afb-b6ca-f957a837664f)
 
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-![Screenshot (84)](https://github.com/user-attachments/assets/a465dd92-75dd-43c0-97de-4c8ad950ca20)
 
+
+![sr1 1](https://github.com/user-attachments/assets/5c4437ee-ea1f-4bd6-9e88-7c7ca29ced9d)
 
 
 **RESULTS**
